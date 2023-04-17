@@ -15,7 +15,7 @@ export const post: APIRoute = async(context) => {
   const initOptions = moneyCheck(apiKey)
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  const response = await fetch(`${baseUrl}/v1/dashboard/billing/usage?start_date=${startDate}&${endDate}`, initOptions).catch((err: Error) => {
+  const response = await fetch(`${baseUrl}/v1/dashboard/billing/usage?start_date=${startDate}&end_date=${endDate}`, initOptions).catch((err: Error) => {
     console.error(err)
     return new Response(JSON.stringify({
       error: {

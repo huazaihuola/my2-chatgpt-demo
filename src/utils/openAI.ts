@@ -18,6 +18,14 @@ export const generatePayload = (apiKey: string, messages: ChatMessage[]): Reques
   }),
 })
 
+export const moneyCheck = (apiKey: string): RequestInit & { dispatcher?: any } => ({
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${apiKey}`,
+  },
+  method: 'GET',
+})
+
 export const parseOpenAIStream = (rawResponse: Response) => {
   const encoder = new TextEncoder()
   const decoder = new TextDecoder()

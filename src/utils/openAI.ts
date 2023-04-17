@@ -26,6 +26,7 @@ export const moneyCheck = (apiKey: string): RequestInit & { dispatcher?: any } =
   method: 'GET',
 })
 
+
 export const parseOpenAIStream = (rawResponse: Response) => {
   const encoder = new TextEncoder()
   const decoder = new TextDecoder()

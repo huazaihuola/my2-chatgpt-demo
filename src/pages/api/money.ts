@@ -10,12 +10,12 @@ const baseUrl = 'https://api.openai.com'
 
 export const post: APIRoute = async(context) => {
   const body = await context.request.json()
-  const { apiKey } = body
+  const { apiKey , startDate, endDate} = body
   
   const initOptions = moneyCheck(apiKey)
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  const response = await fetch(`${baseUrl}/dashboard/billing/credit_grants`, initOptions).catch((err: Error) => {
+  const response = await fetch(`${baseUrl}/v1/dashboard/billing/usage?start_date=${startDate}&${endDate}`, initOptions).catch((err: Error) => {
     console.error(err)
     return new Response(JSON.stringify({
       error: {
